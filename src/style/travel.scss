@@ -1,0 +1,53 @@
+@import 'basic';
+@import 'common';
+
+.Header {
+    padding: 80px 0;
+    text-align: center;
+    @include background(url(../../public/image/header.jpg));
+    color: $maincolor;
+
+    h1 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 40px;
+    }
+
+    .gnb {
+        @include inner;
+        margin-bottom: 40px;
+
+        ul {
+            @include row;
+            justify-content: center;
+            font-size: 20px;
+
+            li {
+                a {
+                    display: block;
+                    padding: 10px 15px;
+                }
+            }
+        }
+    }
+
+    form {
+        background: #fff;
+        width: 800px;
+        margin: 0 auto;
+        border-radius: 5px;
+
+        input {
+            @include btn;
+            text-align: center;
+            width: 700px;
+            line-height: 60px;
+            margin-right: 30px;
+        }
+
+        button {
+            @include btn;
+            font-size: 24px;
+        }
+    }
+}

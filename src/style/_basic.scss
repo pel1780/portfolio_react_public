@@ -1,0 +1,136 @@
+// variable
+$maincolor: #19376D;
+$rgba_bg: rgba(255, 255, 255, 0.7);
+$pc_w: 1320px;
+$tablet_w: 768px;
+$mobile_w: 480px;
+$m_border: 1px solid #ddd;
+
+// mixin
+
+@mixin mobile {
+    @media (max-width: #{$mobile_w}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$tablet_w}) {
+        @content;
+    }
+}
+
+@mixin sec {
+    padding: 100px 0;
+
+    @include tablet {
+        padding: 80px 0;
+    }
+
+    @include mobile {
+        padding: 80px 0;
+    }
+}
+
+@mixin detail {
+    padding: 180px 0 100px 0;
+
+    @include tablet {
+        padding: 160px 0 80px 0;
+    }
+
+    @include mobile {
+        padding: 160px 0 80px 0;
+    }
+}
+
+@mixin inner {
+    width: $pc_w;
+    margin: 0 auto;
+
+    @include tablet {
+        width: auto;
+        margin: 0 15px;
+    }
+
+    @include mobile {
+        width: auto;
+        margin: 0 15px;
+    }
+}
+
+@mixin background($url) {
+    background: $url;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+@mixin btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    line-height: 1;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+@mixin row ($display: flex, $gap: 0) {
+    display: $display;
+    gap: $gap;
+}
+
+@mixin position($position, $inset, $tranX, $tranY, $zindex) {
+    position: $position;
+    inset: $inset;
+    transform: translate($tranX, $tranY);
+    z-index: $zindex;
+}
+
+@mixin event_op($opacity, $visibiliy) {
+    opacity: $opacity;
+    visibility: $visibiliy;
+}
+
+@mixin img($height) {
+    object-fit: cover;
+    width: 100%;
+    height: $height;
+}
+
+@mixin itm($height) {
+    .imgCase {
+        padding: 10px;
+        margin-bottom: 30px;
+
+        img {
+            @include img($height);
+        }
+    }
+}
+
+@mixin dots {
+    margin-top: 10px;
+    text-align: center;
+
+    li {
+        display: inline-block;
+        margin: 0 4px;
+        background: #ddd;
+
+        border-radius: 50%;
+
+        &.slick-active {
+            background: $maincolor;
+        }
+
+        button {
+            @include btn;
+            display: block;
+            width: 15px;
+            height: 15px;
+            font-size: 0;
+            padding: 0;
+        }
+    }
+}

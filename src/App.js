@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import ToTop from "./pages/ToTop";
+import Header from "./pages/Header";
+import './style/travel.scss';
+import axios from "axios";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./Layout";
+import SearchResult from "./travel/SearchResult";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+const App = () => {
+    const [travelData, setTravelData] = useState([]);
+    const [gugun, setGugun] = useState([]);
+    const key = `5VJMYuvSkHiKvEY%2FJ15gNqS38A098VZAkvRWZ9zGn7jSoExXmbtxM6zZe9QIKZWRxO0a%2FxjsRgBYJUQxjHNrmw%3D%3D`;
+
+    const getTravelData = async () => {
+        const result = await axios.get(`http://apis.data.go.kr/6260000/AttractionService/getAttractionKr?serviceKey=${key}&pageNo=1&numOfRows=123&resultType=json`);
+        const detail = await result.data.getAttractionKr.item;
+        setTravelData(detail);
+
+        const getGugun = detail.map(it => it.GUGUN_NM);
+        const gugunList = [...new Set(getGugun)];
+        setGugun(gugunList);
+    }
+    useEffect(() => {
+        getTravelData();
+    }, [])
+    console.log(travelData);
+
+
+    return (
+        <Routes>
+            <Route path="/" element={<Layout gugun={gugun} travelData={travelData} />}>
+                <Route path="search" element={<SearchResult travelData={travelData} />} />
+            </Route>
+        </Routes>
+    )
 }
 
 export default App;
