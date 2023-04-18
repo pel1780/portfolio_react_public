@@ -8,6 +8,7 @@ const Search = ({ travelData }) => {
     const [input, setInput] = useState('search');
     const [search, setSeach] = useState('');
 
+
     const searchHandler = e => {
         e.preventDefault();
         setSeach(input);
@@ -22,7 +23,7 @@ const Search = ({ travelData }) => {
 
     return (
         <form onSubmit={searchHandler}>
-            <input type="text" onChange={inputHandler} />
+            <input type="text" onChange={inputHandler} placeholder={input} />
             <button><BsSearch /></button>
         </form>
     )

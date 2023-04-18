@@ -6,6 +6,8 @@ import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import SearchResult from "./travel/SearchResult";
+import Main from "./pages/Main";
+import GugunList from "./pages/GugunList";
 
 
 
@@ -32,7 +34,11 @@ const App = () => {
     return (
         <Routes>
             <Route path="/" element={<Layout gugun={gugun} travelData={travelData} />}>
+                <Route path="/" element={<Main gugun={gugun} travelData={travelData} />}>
+
+                </Route>
                 <Route path="search" element={<SearchResult travelData={travelData} />} />
+                <Route path=":gu_name" element={<GugunList gugun={gugun} travelData={travelData} />} />
             </Route>
         </Routes>
     )

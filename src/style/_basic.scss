@@ -32,17 +32,17 @@ $m_border: 1px solid #ddd;
     }
 }
 
-@mixin detail {
-    padding: 180px 0 100px 0;
+// @mixin detail {
+//     padding: 180px 0 100px 0;
 
-    @include tablet {
-        padding: 160px 0 80px 0;
-    }
+//     @include tablet {
+//         padding: 160px 0 80px 0;
+//     }
 
-    @include mobile {
-        padding: 160px 0 80px 0;
-    }
-}
+//     @include mobile {
+//         padding: 160px 0 80px 0;
+//     }
+// }
 
 @mixin inner {
     width: $pc_w;
