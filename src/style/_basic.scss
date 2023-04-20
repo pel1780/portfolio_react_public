@@ -1,10 +1,11 @@
 // variable
-$maincolor: #19376D;
+$maincolor: #014750;
 $rgba_bg: rgba(255, 255, 255, 0.7);
 $pc_w: 1320px;
 $tablet_w: 768px;
 $mobile_w: 480px;
 $m_border: 1px solid #ddd;
+$serif: 'Noto Serif KR', serif;
 
 // mixin
 
@@ -22,6 +23,14 @@ $m_border: 1px solid #ddd;
 
 @mixin sec {
     padding: 100px 0;
+
+    h2 {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 500;
+        margin-bottom: 50px;
+        color: $maincolor;
+    }
 
     @include tablet {
         padding: 80px 0;
@@ -99,8 +108,13 @@ $m_border: 1px solid #ddd;
 }
 
 @mixin itm($height) {
-    .imgCase {
-        padding: 10px;
+    padding: 10px;
+    border: $m_border;
+    border-radius: 10px;
+
+    .img_case {
+        border-radius: 5px;
+        overflow: hidden;
         margin-bottom: 30px;
 
         img {

@@ -14,7 +14,7 @@ const SearchResult = ({ travelData }) => {
                 searchResult.map((it, idx) => {
                     return (
                         <li key={it.id} className="itm">
-                            <Link to={`/detail/${it.id}`}>
+                            <Link to={`/detail/${it.UC_SEQ}`}>
                                 <figure className="imgCase">
                                     <img src={it.MAIN_IMG_THUMB} alt="" />
                                 </figure>

@@ -2,32 +2,37 @@ import Slide from 'react-slick';
 import "slick-carousel/slick/slick.css";
 
 const MainSlideList = ({ travelData }) => {
+    const museumList = travelData.filter(it => it.PLACE.includes('박물관'));
+    const slideOption = {
+        arrows: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        pauseOnHover: false,
+        pauseOnFocus: false,
+        centerMode: true,
+        afterChange: idx => {
+
+        }
+    }
     return (
-        <div className='MainSlideList'>
-            <h2>부산 인기 명소 List</h2>
+        <section className='MainSlideList'>
+            <h2>부산 박물관</h2>
             <div className="inner">
-                <div className="desc_case">
-                    <Slide>
+                <div className="slide_case">
+                    <Slide {...slideOption}>
                         {
-                            travelData.map(it => {
+                            museumList.map(it => {
                                 return (
-                                    <div className="desc">
-                                        <strong>{it.MAIN_TITLE}</strong>
-                                        <p>{it.SUBTITLE}</p>
-                                        <span>{it.ADDR1}</span>
-                                    </div>
-                                )
-                            }).slice(0, 9)
-                        }
-                    </Slide>
-                </div>
-                <div className="img_case">
-                    <Slide>
-                        {
-                            travelData.map(it => {
-                                return (
-                                    <div className="img">
-                                        <img src={it.MAIN_IMG_THUMB} alt="" />
+                                    <div className="itm">
+                                        <figure>
+                                            <img src={it.MAIN_IMG_THUMB} alt="" />
+                                        </figure>
+                                        <div className="desc_case">
+                                            <strong>{it.TITLE}</strong>
+                                            <p>{
+                                                it.USAGE_DAY_WEEK_AND_TIME.slice(0, 100)
+                                            }</p>
+                                        </div>
                                     </div>
                                 )
                             })
@@ -35,7 +40,7 @@ const MainSlideList = ({ travelData }) => {
                     </Slide>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

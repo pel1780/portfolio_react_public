@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const Search = ({ travelData }) => {
     const navigate = useNavigate();
 
-    const [input, setInput] = useState('search');
+    const [input, setInput] = useState('원하는 장소를 입력해보세요');
     const [search, setSeach] = useState('');
 
 
