@@ -254,8 +254,87 @@
     @include sec;
     background: #f9f9f9;
 
+    h2 {
+        margin-bottom: 20px;
+    }
+
     .inner {
-        @include inner;
-        margin-left: auto;
+        position: relative;
+        overflow: hidden;
+
+        .itm {
+            position: relative;
+            @include itm(auto);
+            border: none;
+            padding: 0;
+
+            .img_case {
+                margin: 0;
+            }
+
+            .desc_case {
+                @include position(absolute, 50% 0 0 0, 0, 0, auto);
+                @include row;
+                flex-direction: column;
+                justify-content: flex-end;
+                color: #fff;
+                padding: 15px;
+
+                &::before {
+                    content: "";
+                    @include position(absolute, 0 0 0 0, 0, 0, -1);
+                    background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+                    border-radius: 5px;
+                }
+
+                strong {
+                    display: block;
+                    margin-bottom: 10px;
+                    font-size: 20px;
+                    width: 300px;
+                }
+
+                p {
+                    width: 300px;
+                    font-weight: 300;
+                }
+            }
+        }
+
+        .slick-list {
+            overflow: visible;
+            padding: 50px 0 !important;
+        }
+
+        .slick-slide {
+            transform: scale(0.88);
+            transition: 0.5s;
+            width: 417px;
+            padding: 0 20px;
+            transition-delay: 0;
+        }
+
+        .slick-active {
+            transform: scale(1);
+        }
+
+        .slick-center {
+            position: relative;
+            // width: 520px;
+
+            transform: scale(1.12);
+
+            .itm {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        .slick-dots {
+            @include dots;
+        }
+
+        .controller {
+            @include position(absolute, auto auto 0 50%, 0, -50%, auto);
+        }
     }
 }
