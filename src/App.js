@@ -17,7 +17,7 @@ const App = () => {
     const key = `5VJMYuvSkHiKvEY%2FJ15gNqS38A098VZAkvRWZ9zGn7jSoExXmbtxM6zZe9QIKZWRxO0a%2FxjsRgBYJUQxjHNrmw%3D%3D`;
 
     const getTravelData = async () => {
-        const result = await axios.get(`http://apis.data.go.kr/6260000/AttractionService/getAttractionKr?serviceKey=${key}&pageNo=1&numOfRows=123&resultType=json`);
+        const result = await axios.get(`https://apis.data.go.kr/6260000/AttractionService/getAttractionKr?serviceKey=${key}&pageNo=1&numOfRows=123&resultType=json`);
         const detail = await result.data.getAttractionKr.item;
         setTravelData(detail);
 
