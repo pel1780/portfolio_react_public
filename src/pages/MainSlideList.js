@@ -26,7 +26,7 @@ const MainSlideList = ({ travelData }) => {
                         {
                             museumList.map(it => {
                                 return (
-                                    <div className="itm">
+                                    <div className="itm" key={it.UC_SEQ}>
                                         <figure className='img_case'>
                                             <img src={it.MAIN_IMG_THUMB} alt="" />
                                         </figure>
