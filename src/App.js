@@ -28,6 +28,7 @@ const App = () => {
     useEffect(() => {
         getTravelData();
     }, [])
+
     console.log(travelData);
 
 
