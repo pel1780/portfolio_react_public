@@ -1,340 +1,362 @@
-@import 'basic';
-@import 'common';
+@import "basic";
+@import "common";
 
 .Header {
-    @include row;
-    @include position(fixed, 0 0 auto 0, 0, 0, 999);
-    padding: 0 100px;
-    line-height: 80px;
-    color: #fff;
-    transition: 0.45s;
+  @include row;
+  @include position(fixed, 0 0 auto 0, 0, 0, 999);
+  padding: 0 100px;
+  line-height: 80px;
+  color: #fff;
+  transition: 0.45s;
 
-
-    &.on {
-        background: rgba(255, 255, 255, 0.5);
-        color: #343434;
-        border-bottom: $m_border;
-
-        .service {
-            input {
-                border-bottom: 1px solid #343434;
-
-                &::placeholder {
-                    color: #343434;
-                }
-            }
-        }
-    }
-
-    h1 {
-        margin-right: 35px;
-        font-size: 18px;
-    }
-
-    .gnb {
-        ul {
-            @include row;
-
-            a {
-                display: block;
-                padding: 0 15px;
-            }
-        }
-    }
+  &.on {
+    background: $rgba_bg;
+    color: #343434;
+    border-bottom: $m_border;
 
     .service {
-        @include row($gap: 20px);
-        margin-left: auto;
-        font-size: 20px;
+      input {
+        border-bottom: 1px solid #343434;
 
-        * {
-            @include btn;
-            line-height: 80px;
+        &::placeholder {
+          color: #343434;
         }
-
-        input {
-            border-bottom: 1px solid #fff;
-            line-height: 30px;
-            font-size: 14px;
-            font-weight: 100;
-            margin-right: 10px;
-            width: 200px;
-
-            &::placeholder {
-                color: #fff;
-            }
-        }
-
+      }
     }
+  }
+
+  h1 {
+    margin-right: 35px;
+    font-size: 18px;
+  }
+
+  .gnb {
+    ul {
+      @include row;
+
+      a {
+        display: block;
+        padding: 0 15px;
+      }
+    }
+  }
+
+  .service {
+    @include row($gap: 20px);
+    margin-left: auto;
+    font-size: 20px;
+
+    * {
+      @include btn;
+      line-height: 80px;
+    }
+
+    input {
+      border-bottom: 1px solid #fff;
+      line-height: 30px;
+      font-size: 14px;
+      font-weight: 100;
+      margin-right: 10px;
+      width: 200px;
+
+      &::placeholder {
+        color: #fff;
+      }
+    }
+  }
 }
 
 .MainVisual {
+  position: relative;
+  z-index: 1;
+  height: 700px;
+  @include background(url("../../public/image/bg.jpg"));
+  background-position: center bottom -80px;
+  color: #fff;
+
+  @include row;
+  align-items: center;
+  margin-bottom: 30px;
+
+  &::before {
+    content: "";
+    @include position(absolute, 0 0 0 0, 0, 0, -1);
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .inner {
+    flex: 1;
     position: relative;
-    z-index: 1;
-    height: 700px;
-    @include background(url('../../public/image/bg.jpg'));
-    background-position: center bottom -80px;
-    color: #fff;
+    height: 600px;
+    padding: 100px 0;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
 
-    @include row;
-    align-items: center;
-    margin-bottom: 30px;
+    h2 {
+      @include inner;
+      font-family: $serif;
+      font-size: 100px;
+      font-weight: 500;
+      margin-bottom: 30px;
 
-    &::before {
-        content: "";
-        @include position(absolute, 0 0 0 0, 0, 0, -1);
-        background: rgba(0, 0, 0, 0.3)
+      transform: translate(-5px, -20px);
     }
 
-    .inner {
-        flex: 1;
-        position: relative;
-        height: 600px;
-        padding: 100px 0;
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-        overflow: hidden;
+    .slide_case {
+      @include inner;
 
-        h2 {
-            @include inner;
-            font-family: $serif;
-            font-size: 100px;
-            font-weight: 500;
+      .left_tab {
+        width: 660px;
+        height: 240px;
+
+        .tit_case {
+          display: none;
+
+          strong {
+            display: block;
+            font-size: 28px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+          }
+
+          p {
+            font-weight: 300;
             margin-bottom: 30px;
+          }
 
-            transform: translate(-5px, -20px);
-        }
-
-        .slide_case {
-            @include inner;
-
-            .left_tab {
-                width: 660px;
-                height: 240px;
-
-                .tit_case {
-                    display: none;
-
-                    strong {
-                        display: block;
-                        font-size: 28px;
-                        line-height: 1.4;
-                        margin-bottom: 15px;
-                    }
-
-                    p {
-                        font-weight: 300;
-                        margin-bottom: 30px;
-                    }
-
-                    a {
-                        font-size: 20px;
-                        font-weight: 300;
-
-                        span {
-                            font-size: 22px;
-                            vertical-align: -5px;
-                        }
-                    }
-
-                    &.on {
-                        display: block;
-                    }
-                }
-            }
-
-            .right_slide {
-                @include position(absolute, 50% -175px auto auto, 0, -50%, auto);
-                width: calc(50% + 200px);
-                border-radius: 10px;
-
-                .img_case {
-                    padding: 100px 25px 100px 25px;
-
-                    img {
-                        @include img(400px);
-                        border-radius: 10px;
-                        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-                    }
-                }
-            }
-
-            .controller {
-                >* {
-                    @include btn;
-                    font-size: 20px;
-                }
-
-                .pause {
-                    font-size: 28px;
-
-                    &>.on {
-                        display: none;
-                    }
-                }
-            }
-        }
-    }
-
-    .search {
-        @include position(absolute, auto auto 0 50%, -50%, 50%, auto);
-
-        form {
-            background: #f9f9f9;
-            width: 600px;
-            line-height: 60px;
-            border-radius: 30px;
-            padding: 0 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            color: #555;
+          a {
             font-size: 20px;
+            font-weight: 300;
 
-            >* {
-                @include btn;
-                vertical-align: -1px;
+            span {
+              font-size: 22px;
+              vertical-align: -5px;
             }
+          }
 
-            input {
-                font-size: 18px;
-                font-weight: 300;
-                width: 500px;
-            }
+          &.on {
+            display: block;
+          }
         }
+      }
+
+      .right_slide {
+        @include position(absolute, 50% -175px auto auto, 0, -50%, auto);
+        width: calc(50% + 200px);
+        border-radius: 10px;
+
+        .img_case {
+          padding: 100px 25px 100px 25px;
+
+          img {
+            @include img(400px);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+          }
+        }
+      }
+
+      .controller {
+        > * {
+          @include btn;
+          font-size: 20px;
+        }
+
+        .pause {
+          font-size: 28px;
+
+          & > .on {
+            display: none;
+          }
+        }
+      }
     }
+  }
+
+  .search {
+    @include position(absolute, auto auto 0 50%, -50%, 50%, auto);
+    @include search_box;
+  }
 }
 
 .MainBest {
-    @include sec;
+  @include sec;
 
-    .inner {
-        @include inner;
+  .inner {
+    @include inner;
 
-        ul {
-            @include row($display: grid, $gap: 30px);
-            grid-template-columns: repeat(4, 1fr);
+    ul {
+      @include row($display: grid, $gap: 30px);
+      grid-template-columns: repeat(4, 1fr);
 
-            li {
-                position: relative;
-                @include itm(auto);
+      li {
+        position: relative;
+        @include itm(auto);
 
-                span {
-                    display: block;
-                    font-size: 14px;
-                    color: $maincolor;
-                    margin-bottom: 5px;
-                }
-
-                strong {
-                    display: block;
-                    margin-bottom: 10px;
-                    font-size: 20px;
-                }
-
-                p {
-                    font-weight: 300;
-                    height: 80px;
-                }
-
-                button {
-                    @include btn;
-                    @include position(absolute, auto 10px 12px auto, 0, 0, auto);
-                    font-size: 14px;
-                    font-weight: 300;
-
-                    svg {
-                        font-size: 20px;
-                        vertical-align: -5px;
-                    }
-                }
-            }
+        span {
+          display: block;
+          font-size: 14px;
+          color: $maincolor;
+          margin-bottom: 5px;
         }
+
+        strong {
+          display: block;
+          margin-bottom: 10px;
+          font-size: 20px;
+        }
+
+        p {
+          font-weight: 300;
+          height: 80px;
+        }
+
+        button {
+          @include btn;
+          @include position(absolute, auto 10px 12px auto, 0, 0, auto);
+          font-size: 14px;
+          font-weight: 300;
+
+          svg {
+            font-size: 20px;
+            vertical-align: -5px;
+          }
+        }
+      }
     }
+  }
 }
 
 .MainSlideList {
-    @include sec;
-    background: #f9f9f9;
+  @include sec;
+  background: #f9f9f9;
 
-    h2 {
-        margin-bottom: 20px;
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .inner {
+    position: relative;
+    overflow: hidden;
+
+    .itm {
+      position: relative;
+      @include itm(auto);
+      border: none;
+      padding: 0;
+
+      .img_case {
+        margin: 0;
+      }
+
+      .desc_case {
+        @include position(absolute, 30% 0 0 0, 0, 0, auto);
+        @include row;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: #fff;
+        padding: 15px;
+
+        &::before {
+          content: "";
+          @include position(absolute, 0 0 0 0, 0, 0, -1);
+          background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+          border-radius: 5px;
+        }
+
+        strong {
+          display: block;
+          line-height: 1.4;
+          margin-bottom: 10px;
+          width: 300px;
+        }
+
+        p {
+          width: 300px;
+          font-size: 15px;
+          font-weight: 300;
+        }
+      }
     }
 
-    .inner {
-        position: relative;
-        overflow: hidden;
-
-        .itm {
-            position: relative;
-            @include itm(auto);
-            border: none;
-            padding: 0;
-
-            .img_case {
-                margin: 0;
-            }
-
-            .desc_case {
-                @include position(absolute, 50% 0 0 0, 0, 0, auto);
-                @include row;
-                flex-direction: column;
-                justify-content: flex-end;
-                color: #fff;
-                padding: 15px;
-
-                &::before {
-                    content: "";
-                    @include position(absolute, 0 0 0 0, 0, 0, -1);
-                    background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
-                    border-radius: 5px;
-                }
-
-                strong {
-                    display: block;
-                    margin-bottom: 10px;
-                    font-size: 20px;
-                    width: 300px;
-                }
-
-                p {
-                    width: 300px;
-                    font-weight: 300;
-                }
-            }
-        }
-
-        .slick-list {
-            overflow: visible;
-            padding: 50px 0 !important;
-        }
-
-        .slick-slide {
-            transform: scale(0.88);
-            transition: 0.5s;
-            width: 417px;
-            padding: 0 20px;
-            transition-delay: 0;
-        }
-
-        .slick-active {
-            transform: scale(1);
-        }
-
-        .slick-center {
-            position: relative;
-            // width: 520px;
-
-            transform: scale(1.12);
-
-            .itm {
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            }
-        }
-
-        .slick-dots {
-            @include dots;
-        }
-
-        .controller {
-            @include position(absolute, auto auto 0 50%, 0, -50%, auto);
-        }
+    .slick-list {
+      overflow: visible;
+      padding: 50px 0 !important;
     }
+
+    .slick-slide {
+      transform: scale(0.88);
+      transition: 0.5s;
+      width: 417px;
+      padding: 0 20px;
+      transition-delay: 0;
+    }
+
+    .slick-active {
+      transform: scale(1);
+    }
+
+    .slick-center {
+      position: relative;
+      transform: scale(1.12);
+
+      .itm {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .slick-dots {
+      @include dots;
+    }
+
+    .controller {
+      @include position(absolute, 50% auto auto 50%, -50%, -50%, auto);
+      button {
+        @include position(absolute, 50% auto auto 50%, -660px, -50%, auto);
+        @include btn;
+        font-size: 30px;
+        background: $rgba_bg;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        padding: 8px 10px 8px 6px;
+        &.next {
+          transform: translate(612px, -50%);
+          padding: 8px 6px 8px 10px;
+        }
+      }
+    }
+  }
+}
+.MainMap {
+  @include sec;
+  .inner {
+    @include inner;
+    .map_case {
+      @include map_case_st;
+    }
+    .search {
+      @include search_box;
+      form {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.Footer {
+  background: #e9e9e9;
+  padding: 40px 0;
+  .copy {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    color: #555;
+  }
+}
+
+.detailItm {
+  @include sec;
+  .inner {
+    @include inner;
+  }
 }
