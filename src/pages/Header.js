@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import Search from "./Search";
-import { BsSuitHeart } from "react-icons/bs";
+import { BsXLg, BsList } from "react-icons/bs";
 import { useEffect } from "react";
 import { useState } from "react";
 
 const Header = ({ gugun, travelData }) => {
   const [sY, setSY] = useState(0);
+  const [click, setClick] = useState(false);
   const scrollHandler = () => {
     setSY(window.scrollY);
   };
@@ -22,10 +23,10 @@ const Header = ({ gugun, travelData }) => {
         <Link to={`/`}>HOME</Link>
       </h1>
       <nav className="gnb">
-        <ul>
+        <ul className={click ? "on" : ""}>
           {gugun.map((it, idx) => {
             return (
-              <li key={idx}>
+              <li key={idx} onClick={() => setClick(!click)}>
                 <Link to={`/${it}`}>{it}</Link>
               </li>
             );
@@ -34,6 +35,9 @@ const Header = ({ gugun, travelData }) => {
       </nav>
       <div className="service">
         <Search travelData={travelData} />
+        <button className="bar" onClick={() => setClick(!click)}>
+          {click ? <BsXLg /> : <BsList />}
+        </button>
       </div>
     </header>
   );

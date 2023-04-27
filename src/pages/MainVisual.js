@@ -27,13 +27,21 @@ const MainVisual = ({ gugun, travelData }) => {
     arrows: false,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2500,
     pauseOnHover: false,
     pauseOnFocus: false,
     afterChange: (idx) => {
       setSlideIdx(idx);
     },
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   return (
     <section className="MainVisual">

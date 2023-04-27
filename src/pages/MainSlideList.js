@@ -17,6 +17,22 @@ const MainSlideList = ({ travelData }) => {
     centerMode: true,
     centerPadding: "0",
     variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          centerMode: false,
+          variableWidth: false,
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   return (
     <section className="MainSlideList">
@@ -24,23 +40,21 @@ const MainSlideList = ({ travelData }) => {
       <div className="inner">
         <div className="slide_case">
           <Slide {...slideOption} ref={slide}>
-            {
-            museumList.map((it) => {
+            {museumList.map((it) => {
               return (
                 <div className="itm" key={it.UC_SEQ}>
                   <Link to={`/detail/${it.UC_SEQ}`}>
-                  <figure className="img_case">
-                    <img src={it.MAIN_IMG_THUMB} alt="" />
-                  </figure>
-                  <div className="desc_case">
-                    <strong>{it.TITLE}</strong>
-                    <p>{it.USAGE_DAY_WEEK_AND_TIME.slice(0, 100)}</p>
-                  </div>
+                    <figure className="img_case">
+                      <img src={it.MAIN_IMG_THUMB} alt="" />
+                    </figure>
+                    <div className="desc_case">
+                      <strong>{it.TITLE}</strong>
+                      <p>{it.USAGE_DAY_WEEK_AND_TIME.slice(0, 100)}</p>
+                    </div>
                   </Link>
                 </div>
               );
-            })
-            }
+            })}
           </Slide>
           <div className="controller">
             <button className="prev" onClick={() => slide.current.slickPrev()}>

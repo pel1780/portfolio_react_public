@@ -5,7 +5,7 @@ import Map from "./Map";
 const Itm = ({ travelData }) => {
   const { itm } = useParams();
   const detailItm = travelData?.find((it) => String(it.UC_SEQ) === itm);
-
+  console.log(detailItm.ADDR1);
   return (
     <div className="detailItm">
       <div className="inner">
@@ -23,13 +23,21 @@ const Itm = ({ travelData }) => {
         </div>
         <dl className="info">
           <dt>주소</dt>
-          <dd>{detailItm.ADDR1}</dd>
+          <dd>{detailItm.ADDR1 == "" ? "홈페이지 참조" : detailItm.ADDR1}</dd>
           <dt>오시는길</dt>
-          <dd>{detailItm.TRFC_INFO}</dd>
+          <dd>
+            {detailItm.TRFC_INFO == "" ? "홈페이지 참조" : detailItm.TRFC_INFO}
+          </dd>
           <dt>편의시설</dt>
-          <dd>{detailItm.MIDDLE_SIZE_RM1}</dd>
+          <dd>
+            {detailItm.MIDDLE_SIZE_RM1 == ""
+              ? "홈페이지 참조"
+              : detailItm.MIDDLE_SIZE_RM1}
+          </dd>
           <dt>전화번호</dt>
-          <dd>{detailItm.CNTCT_TEL}</dd>
+          <dd>
+            {detailItm.CNTCT_TEL == "" ? "홈페이지 참조" : detailItm.CNTCT_TEL}
+          </dd>
         </dl>
       </div>
     </div>
