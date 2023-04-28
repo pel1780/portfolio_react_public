@@ -58,7 +58,7 @@ const Map = ({ gugun, travelData, guList }) => {
       var infowindow = new kakao.maps.InfoWindow({
         content: `<div 
         style=" padding: 5px 0; text-align: center; width:145px;
-        ">${positions[i].ucseq}</div>`,
+        ">${positions[i].title}</div>`,
         position: positions[i].latlng,
       });
       kakao.maps.event.addListener(
