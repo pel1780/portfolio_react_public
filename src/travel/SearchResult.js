@@ -22,7 +22,7 @@ const SearchResult = ({ travelData }) => {
         <ul className="list">
           {searchResult.map((it) => {
             return (
-              <li>
+              <li key={it.UC_SEQ}>
                 <Link to={`/detail/${it.UC_SEQ}`}>
                   <figure className="img_case">
                     <img src={it.MAIN_IMG_THUMB} alt="" />
