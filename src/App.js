@@ -30,8 +30,6 @@ const App = () => {
     getTravelData();
   }, []);
 
-  console.log(travelData);
-
   return (
     <Routes>
       <Route

@@ -20,7 +20,9 @@ const Header = ({ gugun, travelData }) => {
   return (
     <header className={`Header ${sY > 100 ? "on" : ""}`}>
       <h1>
-        <Link to={`/`}>HOME</Link>
+        <Link to={`/`}>
+          <img src={`${process.env.PUBLIC_URL}/image/map_logo.png`} alt="" />
+        </Link>
       </h1>
       <nav className="gnb">
         <ul className={click ? "on" : ""}>

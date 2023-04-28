@@ -4,20 +4,27 @@
 .Header {
   @include row;
   @include position(fixed, 0 0 auto 0, 0, 0, 999);
-  padding: 0 100px;
+  padding: 0 50px;
   line-height: 80px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  color: #343434;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  color: #e9e9e9;
+  font-weight: 300;
   transition: 0.45s;
   background: $rgba_bg;
 
   &.on {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.6);
   }
 
   h1 {
-    margin-right: 35px;
     font-size: 18px;
+    a {
+      display: block;
+      img {
+        width: 100%;
+        height: 40px;
+      }
+    }
   }
 
   .gnb {
@@ -42,7 +49,7 @@
     }
 
     input {
-      border-bottom: 1px solid #343434;
+      border-bottom: 1px solid #e9e9e9;
       line-height: 30px;
       font-size: 14px;
       font-weight: 100;
@@ -50,7 +57,7 @@
       width: 200px;
 
       &::placeholder {
-        color: #343434;
+        color: #e9e9e9;
       }
     }
     .bar {
@@ -63,17 +70,17 @@
     &.on {
       .gnb {
         ul {
-          background: rgba(255, 255, 255, 0.8);
+          background: rgba(0, 0, 0, 0.6);
         }
       }
     }
 
     .gnb {
       ul {
-        @include position(absolute, 82px 0 0 auto, 0, 0, auto);
+        @include position(absolute, 82px 0 0 0, 0, 0, 999);
         flex-direction: column;
         line-height: 40px;
-        background: rgba(255, 255, 255, 0.4);
+        background: $rgba_bg;
         height: 0;
         text-align: center;
         transition: 0.45s;
@@ -82,7 +89,6 @@
         &.on {
           display: flex;
           height: 1000px;
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
 
         a {
@@ -111,16 +117,11 @@
       }
 
       input {
-        border-bottom: 1px solid #343434;
         line-height: 30px;
         font-size: 14px;
         font-weight: 100;
         margin-right: 10px;
         width: 150px;
-
-        &::placeholder {
-          color: #343434;
-        }
       }
     }
   }
@@ -511,8 +512,8 @@
         font-size: 30px;
         background: $rgba_bg;
         border-radius: 50%;
-        border: 1px solid #ddd;
         padding: 8px 10px 8px 6px;
+        color: #ddd;
         &.next {
           transform: translate(612px, -50%);
           padding: 8px 6px 8px 10px;

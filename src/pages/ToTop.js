@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const ToTopWrapper = styled.div`
   position: fixed;
-  z-index: 999;
+  z-index: 9;
   bottom: 100px;
   right: 100px;
   font-size: 40px;

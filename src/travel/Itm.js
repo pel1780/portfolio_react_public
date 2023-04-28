@@ -1,11 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Map from "./Map";
 
 const Itm = ({ travelData }) => {
   const { itm } = useParams();
   const detailItm = travelData?.find((it) => String(it.UC_SEQ) === itm);
-  console.log(detailItm.ADDR1);
+
   return (
     <div className="detailItm">
       <div className="inner">
@@ -18,7 +17,7 @@ const Itm = ({ travelData }) => {
             <strong>{detailItm.PLACE}</strong>
           </div>
           <div className="desc">
-            <p>{detailItm.ITEMCNTNTS}</p>
+            <p dangerouslySetInnerHTML={{ __html: detailItm.ITEMCNTNTS }}></p>
           </div>
         </div>
         <dl className="info">
