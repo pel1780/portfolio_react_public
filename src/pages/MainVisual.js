@@ -27,7 +27,7 @@ const MainVisual = ({ gugun, travelData }) => {
     arrows: false,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2500,
     pauseOnHover: false,
     pauseOnFocus: false,
