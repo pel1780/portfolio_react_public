@@ -155,12 +155,10 @@
 
     h2 {
       @include inner;
-      font-family: $serif;
       font-size: 100px;
       font-weight: 500;
-      margin-bottom: 30px;
 
-      transform: translate(-5px, -20px);
+      transform: translate(-3px, -15px);
     }
 
     .slide_case {
