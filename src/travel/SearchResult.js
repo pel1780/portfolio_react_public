@@ -11,7 +11,6 @@ const SearchResult = ({ travelData }) => {
     (it) => it.ADDR1.includes(r) || it.MAIN_TITLE.includes(r)
   );
 
-  console.log(searchResult);
 
   return (
     <div className="SearchResult">

@@ -8,7 +8,6 @@ const GugunList = ({ gugun, travelData }) => {
   const { gu_name } = useParams();
 
   const guList = travelData.filter((it) => it.GUGUN_NM === gu_name);
-  console.log(guList);
   return (
     <div className=" GugunList">
       <div className="inner">
